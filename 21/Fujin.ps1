@@ -9,8 +9,8 @@ netsh advfirewall firewall add rule name="Windows Remote Management (HTTP-Out)" 
 netsh advfirewall firewall add rule name="HTTP-in" dir=in protocol=tcp localport=8081 action=allow
 netsh advfirewall firewall add rule name="HTTP-out" dir=out protocol=tcp localport=8081 action=allow
 
-netsh advfirewall firewall add rule name="Database-in" dir=in protocol=tcp localport=3306 action=allow remoteip=172.16.2.11
-netsh advfirewall firewall add rule name="Database-out" dir=out protocol=tcp locolport=3306 action=allow
+netsh advfirewall firewall add rule name="Database-in" dir=in protocol=tcp remoteport=3306 action=allow remoteip=172.16.2.11
+netsh advfirewall firewall add rule name="Database-out" dir=out protocol=tcp remoteport=3306 action=allow remoteip=172.16.2.11
 
 netsh advfirewall firewall add rule name="DNS" dir=out action=allow protocol=udp remoteport=53
 netsh advfirewall firewall add rule name="DNS" dir=in action=allow protocol=udp localport=53
