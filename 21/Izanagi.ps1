@@ -6,8 +6,11 @@ netsh advfirewall set allprofiles firewallpolicy blockinbound,blockoutbound
 netsh advfirewall firewall add rule name="ICMP" dir=in action=allow protocol=icmpv4:8,any
 netsh advfirewall firewall add rule name="ICMP" dir=out action=allow protocol=icmpv4:8,any
 
-netsh advfirewall firewall add rule name="Windows Remote Management (HTTP-In)" dir=in protocol=tcp remoteport=5985 action=allow
-netsh advfirewall firewall add rule name="Windows Remote Management (HTTP-Out)" dir=out protocol=tcp remoteport=5985 action=allow
+netsh advfirewall firewall add rule name="Windows Remote Management (HTTP-In)" dir=in protocol=tcp localport=5985 action=allow
+netsh advfirewall firewall add rule name="Windows Remote Management (HTTP-Out)" dir=out protocol=tcp localport=5985 action=allow
+
+netsh advfirewall firewall add rule name="Windows Remote Management - Cloud (HTTP-In)" dir=in protocol=tcp remoteport=5985 action=allow
+netsh advfirewall firewall add rule name="Windows Remote Management - Cloud (HTTP-out)" dir=out protocol=tcp remoteport=5985 action=allow 
 
 netsh advfirewall firewall add rule name="DNS" dir=out action=allow protocol=udp localport=53 remoteport=53
 netsh advfirewall firewall add rule name="DNS" dir=in action=allow protocol=udp localport=53 remoteport=53
@@ -17,6 +20,8 @@ netsh advfirewall firewall add rule name="AD-udp-in" action=allow protocol=udp l
 
 netsh advfirewall firewall add rule name="AD-tcp-out" action=allow protocol=tcp localport=389,445,88,135,3268 dir=out
 netsh advfirewall firewall add rule name="AD-udp-out" action=allow protocol=udp localport=389,445,88,135,123 dir=out
+
+netsh advfirewall firewall add rule name="IIS Remote Management" dir=out action=allow protocol=TCP remoteport=8172
 
 netsh advfirewall set allprofiles logging filename $HOME\Pictures\fw.log
 netsh advfirewall set allprofiles logging maxfilesize 32676

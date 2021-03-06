@@ -6,6 +6,9 @@ netsh advfirewall set allprofiles firewallpolicy blockinbound,blockoutbound
 netsh advfirewall firewall add rule name=”ICMP-in” dir=in action=allow protocol=icmpv4:8,any
 netsh advfirewall firewall add rule name=”ICMP-out” dir=out action=allow protocol=icmpv4:8,any
 
+netsh advfirewall firewall add rule name="RDP" dir=in protocol=tcp remoteport=3389 action=allow remoteip=172.16.2.21
+netsh advfirewall firewall add rule name="RDP" dir=out protocol=tcp remoteport=3389 action=allow remoteip=172.16.2.21
+
 netsh advfirewall firewall add rule name="Windows Remote Management (HTTP-In)" dir=in protocol=tcp remoteport=5985 action=allow
 netsh advfirewall firewall add rule name="Windows Remote Management (HTTP-Out)" dir=out protocol=tcp remoteport=5985 action=allow
 
