@@ -27,7 +27,6 @@ netsh advfirewall firewall add rule name="AD-udp-in" dir=in action=allow protoco
 netsh advfirewall firewall add rule name="AD-tcp-out" dir=out action=allow protocol=tcp remoteport=389,445,88,135,3268 
 netsh advfirewall firewall add rule name="AD-udp-out" dir=out action=allow protocol=udp remoteport=389,445,88,135,123
 
-
 netsh advfirewall set allprofiles logging filename $HOME\Pictures\fw.log
 netsh advfirewall set allprofiles logging maxfilesize 32676
 netsh advfirewall set allprofiles logging droppedconnections enable
