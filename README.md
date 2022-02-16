@@ -1,4 +1,4 @@
-# ISTS blue team scripts
+# Blue team scripts
 These are mostly my firewall scripts or quick tools to pull down from the internet
 
 ## 20
